@@ -23,7 +23,7 @@ defmodule Garage.MixProject do
   def application do
     [
       mod: {Garage.Application, []},
-      extra_applications: [:logger, :runtime_tools, :inets, :ssl]
+      extra_applications: [:logger, :runtime_tools]
     ]
   end
 
@@ -35,11 +35,13 @@ defmodule Garage.MixProject do
       {:shoehorn, "~> 0.7.0"},
       {:ring_logger, "~> 0.8.1"},
       {:toolshed, "~> 0.2.13"},
+      {:tortoise, "~> 0.9"},
 
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.11.3", targets: @all_targets},
       {:nerves_pack, "~> 0.4.0", targets: @all_targets},
       {:vintage_net_wifi, "~> 0.9.0", targets: @all_targets},
+      {:circuits_gpio, "~> 0.4"},
 
       # Dependencies for specific targets
       {:nerves_system_rpi, "~> 1.13", runtime: false, targets: :rpi},

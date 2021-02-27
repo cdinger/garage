@@ -12,6 +12,18 @@ defmodule Garage.Application do
 
     children =
       [
+        {Garage.DoorSensor, []},
+        {Garage.DoorSwitch, []},
+        {Garage.ServiceDoorSensor, []},
+        {Tortoise.Connection, [
+          client_id: Garage,
+          handler: {Garage.MQTTHandler, []},
+          server: {Tortoise.Transport.SSL, host: Application.get_env(:tortoise, :server), port: Application.get_env(:tortoise, :port), verify: :verify_none},
+          user_name: Application.get_env(:tortoise, :user),
+          password: Application.get_env(:tortoise, :password),
+          subscriptions: ["home/garage/door/set"],
+          will: %Tortoise.Package.Publish{topic: "home/garage/status", payload: "offline"}
+        ]}
         # Children for all targets
         # Starts a worker by calling: Garage.Worker.start_link(arg)
         # {Garage.Worker, arg},

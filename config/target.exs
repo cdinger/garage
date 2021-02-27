@@ -57,8 +57,7 @@ config :vintage_net,
      %{
        type: VintageNetEthernet,
        ipv4: %{method: :dhcp}
-     }},
-    {"wlan0", %{type: VintageNetWiFi}}
+     }}
   ]
 
 config :mdns_lite,
@@ -93,8 +92,4 @@ config :mdns_lite,
     }
   ]
 
-# Import target specific config. This must remain at the bottom
-# of this file so it overrides the configuration defined above.
-# Uncomment to use target specific configurations
-
-# import_config "#{Mix.target()}.exs"
+import_config "target.secrets.exs"
