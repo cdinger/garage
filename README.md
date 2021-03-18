@@ -1,32 +1,28 @@
 # Garage
 
-**TODO: Add description**
+This is an Elixir/Nerves firmware that runs in my garage. It
+opens and closes my garage door and senses the state of the garage door and service
+door. Commands and states all go through an MQTT server and I consume them from [Home
+Assistant](https://www.home-assistant.io/) and HomeKit.
+
+This replaces a hodgepodge of of C code and homebridge installations and provides me with
+a playground for experimenting with Elixir and Nerves. I'm making this public because
+I was surprised by how few example projects I could find that use MQTT and Nerves like this.
+Please don't mistake this for good or idiomatic Elixir code :-)
+
+## Hardware
+
+I run this on a Raspberry Pi Zero W. The door sensors are normally-open (NO) magnetic
+reed switches and the garage door actuator is a 5V relay module. 
+
+## Deploy to target device
+
+- Fetch dependencies: `MIX_TARGET=rpi0 mix deps.get`
+- Compile: `MIX_TARGET=rpi0 mix firmware`
+- Write to SD card: `mix firmware.burn`
+
+Nerves can also perform over-the-air updates on already deployed devices: `mix upload <IP_ADDRESS>`.
 
 ## Targets
 
-Nerves applications produce images for hardware targets based on the
-`MIX_TARGET` environment variable. If `MIX_TARGET` is unset, `mix` builds an
-image that runs on the host (e.g., your laptop). This is useful for executing
-logic tests, running utilities, and debugging. Other targets are represented by
-a short name like `rpi3` that maps to a Nerves system image for that platform.
-All of this logic is in the generated `mix.exs` and may be customized. For more
-information about targets see:
-
-https://hexdocs.pm/nerves/targets.html#content
-
-## Getting Started
-
-To start your Nerves app:
-  * `export MIX_TARGET=my_target` or prefix every command with
-    `MIX_TARGET=my_target`. For example, `MIX_TARGET=rpi3`
-  * Install dependencies with `mix deps.get`
-  * Create firmware with `mix firmware`
-  * Burn to an SD card with `mix firmware.burn`
-
-## Learn more
-
-  * Official docs: https://hexdocs.pm/nerves/getting-started.html
-  * Official website: https://nerves-project.org/
-  * Forum: https://elixirforum.com/c/nerves-forum
-  * Discussion Slack elixir-lang #nerves ([Invite](https://elixir-slackin.herokuapp.com/))
-  * Source: https://github.com/nerves-project/nerves
+Nerves supports other targets. See the their [list of supported devices](https://hexdocs.pm/nerves/targets.html#content). Any of these should work.
