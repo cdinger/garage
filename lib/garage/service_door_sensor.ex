@@ -23,9 +23,9 @@ defmodule Garage.ServiceDoorSensor do
 
   defp nice_value(pin_value) do
     if pin_value == 0 do
-      "open"
-    else
       "closed"
+    else
+      "open"
     end
   end
 end
