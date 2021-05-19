@@ -5,7 +5,7 @@ opens and closes my garage door and senses the state of the garage door and serv
 door. Commands and states all go through an MQTT server and I consume them from [Home
 Assistant](https://www.home-assistant.io/) and HomeKit.
 
-This replaces a hodgepodge of of C code and homebridge installations and provides me with
+This replaces a hodgepodge of C code and homebridge installations and provides me with
 a playground for experimenting with Elixir and Nerves. I'm making this public because
 I was surprised by how few example projects I could find that use MQTT and Nerves like this.
 Please don't mistake this for good or idiomatic Elixir code :-)
