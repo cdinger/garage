@@ -18,7 +18,7 @@ config :shoehorn, init: [:nerves_runtime, :nerves_pack]
 
 config :nerves,
   erlinit: [
-    hostname_pattern: "nerves-%s"
+    hostname_pattern: "garage-controller"
   ]
 
 # Configure the device for SSH IEx prompt access and firmware updates
