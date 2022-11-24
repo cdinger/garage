@@ -19,7 +19,7 @@ reed switches and the garage door actuator is a 5V relay module.
 
 - Fetch dependencies: `MIX_TARGET=rpi0 mix deps.get`
 - Compile: `MIX_TARGET=rpi0 mix firmware`
-- Write to SD card: `mix firmware.burn`
+- Write to SD card: `mix burn`
 
 Nerves can also perform over-the-air updates on already deployed devices: `mix upload <IP_ADDRESS>`.
 
